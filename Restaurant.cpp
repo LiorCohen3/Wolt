@@ -43,3 +43,28 @@ Restaurant::~Restaurant() {
 	street.~Address();
 	menu.~Menu();
 }
+
+void Restaurant::printRestaurant()
+{
+	std::cout << name << std::endl;
+}
+
+int Restaurant::makeOrder(Dish* dish_array)
+{
+	int i = 0;
+	int choose = -1 ;
+	std::cout << std::endl;
+	std::cout << "Choose dishes from menu, to end order enter 0:\n";
+	menu.printMenu();
+	do
+	{
+		std::cout << ">";
+		std::cin >> choose;
+		if (choose > 0 && choose < 6)
+		{
+			dish_array[i] = menu.returnDishByChoose(choose);
+			i++;
+		}
+	} while (choose != 0);
+	return i;
+}

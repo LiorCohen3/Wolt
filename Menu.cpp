@@ -47,3 +47,78 @@ Menu::~Menu() {
 	}
 	delete[] dishes;
 }
+
+void Menu::printMenu()
+{
+	int counter = 1;
+	for (int i = 0; i < size; i++)
+	{
+		if (dishes[i].getDishType() == Appetizer)
+		{
+			std::cout << counter << ".";
+			dishes[i].printDish();
+			counter++;
+		}
+	}
+	std::cout << "\n****************************\n";
+	for (int i = 0; i < size; i++)
+	{
+		if (dishes[i].getDishType() == MainCourse)
+		{
+			std::cout << counter << ".";
+			dishes[i].printDish();
+			counter++;
+		}
+	}
+	std::cout << "\n****************************\n";
+	for (int i = 0; i < size; i++)
+	{
+		if (dishes[i].getDishType() == Dessert)
+		{
+			std::cout << counter << ".";
+			dishes[i].printDish();
+			counter++;
+		}
+	}
+}
+
+Dish Menu::returnDishByChoose(int c)
+{
+	int counter = 1;
+	for (int i = 0; i < size; i++)
+	{
+		if (dishes[i].getDishType() == Appetizer)
+		{
+			if (counter == c)
+			{
+				dishes[i].printDishAdded();
+				return dishes[i];
+			}
+			counter++;
+		}
+	}
+	for (int i = 0; i < size; i++)
+	{
+		if (dishes[i].getDishType() == MainCourse)
+		{
+			if (counter == c)
+			{
+				dishes[i].printDishAdded();
+				return dishes[i];
+			}
+			counter++;
+		}
+	}
+	for (int i = 0; i < size; i++)
+	{
+		if (dishes[i].getDishType() == Dessert)
+		{
+			if (counter == c)
+			{
+				dishes[i].printDishAdded();
+				return dishes[i];
+			}
+			counter++;
+		}
+	}
+}

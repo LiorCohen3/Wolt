@@ -9,6 +9,8 @@ public:
 	Application();
 	Application(Client* new_clients, int num_of_clients, Restaurant* new_restaurants, int num_of_restaurants);
 	~Application();
+public:
+	void order();
 
 private:
 	Client*		clients;

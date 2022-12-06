@@ -20,7 +20,7 @@ Address::Address(int new_street, const char* new_city)
 	strcpy_s(city, strlen(new_city) + 1, new_city);
 }
 
-Address& Address::operator =(const Address address) {
+Address& Address::operator =(const Address& address) {
 	if (this != &address)
 	{
 		delete[] city;

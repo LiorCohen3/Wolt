@@ -1,4 +1,5 @@
 #include "Application.h"
+#define MAX_ORDER_SIZE 20
 
 Application::Application()
 	:
@@ -59,4 +60,31 @@ Application::~Application()
 		restaurants[i].~Restaurant();
 	}
 	delete[] restaurants;
+}
+
+void Application::order()
+{
+	int choose = 0;
+	do
+	{
+		std::cout << "\n1)Back <--\n";
+		for (int i = 0; i < num_of_restaurants; i++)
+		{
+			std::cout << i + 2 << ")";
+			restaurants[i].printRestaurant();
+		}
+		std::cout << ">";
+		std::cin >> choose;
+
+	} while (choose < 1 || choose > num_of_restaurants + 1);
+	if (choose == 1) return;
+	int restaurantIndex = choose - 2;
+	if (strcmp(restaurants[restaurantIndex].callGetCity(),clients[0].callGetCity()) == 0)
+	{
+		Dish chosen_dishes[MAX_ORDER_SIZE];
+		int order_size = restaurants[restaurantIndex].makeOrder(chosen_dishes);
+		Order new_order(chosen_dishes, clients[0], restaurants[restaurantIndex], order_size);
+	}
+	else std::cout << "This restaurant does not deliver to you!\n";
+	return;
 }

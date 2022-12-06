@@ -1,4 +1,5 @@
 #include "Dish.h"
+#include <iomanip>
 
 Dish::Dish()
 	:
@@ -38,4 +39,14 @@ Dish& Dish::operator = (const Dish& dish)
 		//strcpy_s(name, strlen(dish.name) + 1, dish.name);
 	}
 	return *this;
+}
+
+void Dish::printDish()
+{
+	std::cout << std::setw(20) << std::left << name << std::setw(5) << value << "NIS\n";
+}
+
+void Dish::printDishAdded()
+{
+	std::cout << name << " has been added!\n";
 }

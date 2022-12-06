@@ -2,10 +2,11 @@
 #define MENU_SIZE 5
 #define CLIENT_SIZE 2
 #define RESTAURANT_SIZE 3
+
 int main() 
 {
-    Address liors_address(1, "Ramla");
-    Address eliyas_address(2, "Modin");
+    Address liors_address(15, "Ramla");
+    Address eliyas_address(25, "Modin");
     Client clients_array[CLIENT_SIZE];
     clients_array[0].setName("Lior");
     clients_array[0].setPhoneNumber("0542288625");
@@ -70,7 +71,7 @@ int main()
     Menu a_menu(a_dishes, MENU_SIZE);
 
     Restaurant restaurants_array[RESTAURANT_SIZE];
-    Address taizu_address(3, "Tel Aviv"), kisu_address(1, "Ramla"), a_address(2, "Modiin");
+    Address taizu_address(20, "Tel Aviv"), kisu_address(13, "Ramla"), a_address(10, "Modiin");
     restaurants_array[0].setName("Taizu");
     restaurants_array[0].setAddress(taizu_address);
     restaurants_array[0].setMenu(taizu_menu);
@@ -87,10 +88,10 @@ int main()
     int choose = 0;
     while (true)
     {
-        std::cout << "-----------MENU:-----------\n"
+        std::cout << "\n-----------MENU:-----------\n"
             << "\t1-Exit\n"
             << "\t2-Order Status\n"
-            << "\t3-Order\n";
+            << "\t3-Order\n>";
         std::cin >> choose;
         switch (choose)
         {
@@ -100,6 +101,7 @@ int main()
         case 2:
             break;
         case 3:
+            wolt.order();
             break;
         default:
             std::cout << "Please try again\n";

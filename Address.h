@@ -7,8 +7,10 @@ class Address
 public:
 	Address();
 	Address(int new_street, const char* new_city);
-	Address& operator =(const Address address);
-	~Address() { delete[] city; }
+	Address& operator =(const Address& address);
+	~Address() { delete[] city; } 
+public:
+	const char* getCity() { return city; }
 
 private:
 	int		street;
