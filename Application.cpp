@@ -91,8 +91,20 @@ void Application::order()
 	{
 		Dish chosen_dishes[MAX_ORDER_SIZE];
 		int order_size = restaurants[restaurantIndex].makeOrder(chosen_dishes);
-		orders[0].setSize(order_size);
 		Order new_order(chosen_dishes, clients[0], restaurants[restaurantIndex], order_size);
+		orders[curr_orders_num] = new_order;
+		std::cout << "Please confirm the details of the order:\n";
+		clients[0].printClient();
+		restaurants[restaurantIndex].printRestaurant();
+		int client_credit = clients[0].getCredits();
+		int order_sum = orders[curr_orders_num].getTotalSum();
+		if (client_credit < order_sum)
+		{
+			std::cout << "\nError! not enough credits. Please remove items\n"
+				<< "Order total:" << order_sum << " NIS " << "\nAvailable balance:"
+				<< client_credit << " NIS\n\n";
+			CheckOrder();
+		}
 	}
 	else std::cout << "This restaurant does not deliver to you!\n";
 	return;
@@ -103,14 +115,15 @@ void Application::order()
 void Application::CheckOrder()
 {
 	// print the order first
-	orders[0].PrintOrder();
+	orders[curr_orders_num].PrintOrder();
 	std::cout << "Would you like to delete a dish?" << std::endl << "1 - yes" 
-	<< std::endl << "0 - No, leave the order" << std::endl << std::endl;
+		<< std::endl << "0 - No, leave the order" << std::endl << std::endl;
 	int sel;
 	do
 	{
+		std::cout << ">";
 		std::cin >> sel;
-	} while (sel != 0 || sel != 1);
+	} while (sel != 0 && sel != 1);
 
 	if (sel == 0)
 		return;		// no changes
@@ -122,12 +135,14 @@ void Application::CheckOrder()
 	{
 		do
 		{
+			std::cout << ">";
 			std::cin >> sel;
-		} while (sel < 0 || sel > 5);
-
-		int del_index = sel-1;
-		orders[0].CallSetDishStatus(del_index, false);
-	} while (sel == 0);
+		} while (sel < 0 || sel > orders[curr_orders_num].getSize());
+		if (sel != 0)
+		{
+			orders[curr_orders_num].deleteDishByIndex(sel - 1);
+		}
+	} while (sel != 0);
 	
 	
 

@@ -47,8 +47,8 @@ Restaurant& Restaurant::operator = (const Restaurant& restaurant)
 // Destructor
 Restaurant::~Restaurant() {
 	//delete[] name;
-	street.~Address();
-	menu.~Menu();
+	//street.~Address();
+	//menu.~Menu();
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -62,7 +62,7 @@ void Restaurant::printRestaurant()
 // making the order (call from App - Order())
 int Restaurant::makeOrder(Dish* dish_array)
 {
-	int i = 0;
+	int num_of_dishes = 0;
 	int choose = -1 ;
 	std::cout << std::endl;
 	std::cout << "Choose dishes from menu, to end order enter 0:\n";
@@ -73,9 +73,9 @@ int Restaurant::makeOrder(Dish* dish_array)
 		std::cin >> choose;
 		if (choose > 0 && choose < 6)
 		{
-			dish_array[i] = menu.returnDishByChoose(choose);
-			i++;
+			dish_array[num_of_dishes] = menu.returnDishByChoose(choose);
+			num_of_dishes++;
 		}
 	} while (choose != 0);
-	return i;
+	return num_of_dishes;
 }

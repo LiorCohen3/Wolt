@@ -13,6 +13,7 @@ public:
 	void setName(const char* new_name) { name = new_name; }
 	const char* callGetCity(){ return street.getCity(); }
 	void setAddress(Address new_address) { street = new_address; }
+	int callGetStreet() { return street.getStreet(); }
 	void setMenu(Menu new_menu) { menu = new_menu; }
 	void printRestaurant();
 	int makeOrder(Dish* dish_array );

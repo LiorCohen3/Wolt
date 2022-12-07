@@ -65,10 +65,8 @@ Client& Client::operator = (const Client& client)
 }
 
 /*-------------------------------------------------------------------------------*/
-// Destructor
-Client::~Client() 
+// print client
+void Client::printClient()
 {
-	//delete[] name;
-	//delete[] phoneNumber;
-	homeAddress.~Address();
+	std::cout << name << " " << phoneNumber << std::endl;
 }

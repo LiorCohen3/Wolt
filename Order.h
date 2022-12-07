@@ -9,9 +9,13 @@ public:
 	Order(Dish* dishes_order, Client client_order, Restaurant restaurant_order, int order_size);
 	~Order();
 public:
+	Order& operator = (const Order& order);
 	void PrintOrder();
-	bool CallgetDishStatus(int index){dishes[index].getDishStatus();}
-	void CallSetDishStatus(int index, bool val) {dishes[index].setDishStatus(val);}
+	int getSize() { return dishes_size; }
+	void setSize(int new_size) { dishes_size = new_size; }
+	int getTotalSum() { return totalSum; }
+	void deleteDishByIndex(int index);
+	int	calcArrivalTime();
 
 private:
 	Dish*		dishes;

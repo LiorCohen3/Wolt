@@ -11,6 +11,7 @@ public:
 	~Address() { delete[] city; } 
 public:
 	const char* getCity() { return city; }
+	int getStreet() { return street; }
 
 private:
 	int		street;
