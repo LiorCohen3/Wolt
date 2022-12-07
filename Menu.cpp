@@ -1,10 +1,14 @@
 #include "Menu.h"
 
+/*-------------------------------------------------------------------------------*/
+// Default constructor
 Menu::Menu()
 	:
 	dishes(NULL),
 	size(0) {}
 
+/*-------------------------------------------------------------------------------*/
+// Constructor
 Menu::Menu(Dish* new_dishes, int new_size)
 	:
 	size(new_size)
@@ -20,7 +24,8 @@ Menu::Menu(Dish* new_dishes, int new_size)
 	}
 }
 
-
+/*-------------------------------------------------------------------------------*/
+// Assignment operator
 Menu& Menu::operator = (const Menu& menu)
 {
 	if (this != &menu)
@@ -40,6 +45,8 @@ Menu& Menu::operator = (const Menu& menu)
 	return *this;
 }
 
+/*-------------------------------------------------------------------------------*/
+// Destructor
 Menu::~Menu() {
 	for (int i = 0; i < size; i++)
 	{
@@ -48,6 +55,8 @@ Menu::~Menu() {
 	delete[] dishes;
 }
 
+/*-------------------------------------------------------------------------------*/
+// Prints the menu
 void Menu::printMenu()
 {
 	int counter = 1;
@@ -82,6 +91,8 @@ void Menu::printMenu()
 	}
 }
 
+/*-------------------------------------------------------------------------------*/
+// returns the dish that the client choos (call from restaurant - makeOrder())
 Dish Menu::returnDishByChoose(int c)
 {
 	int counter = 1;

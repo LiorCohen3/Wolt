@@ -1,9 +1,13 @@
 #include "Restaurant.h"
 
+/*-------------------------------------------------------------------------------*/
+// Default constructor
 Restaurant::Restaurant()
 	:
 	name(NULL) {}
 
+/*-------------------------------------------------------------------------------*/
+// Constructor
 Restaurant::Restaurant(const char* new_name, Address new_address, Menu new_menu)
 	:
 	street(new_address),
@@ -19,7 +23,8 @@ Restaurant::Restaurant(const char* new_name, Address new_address, Menu new_menu)
 	strcpy_s(name, strlen(new_name) + 1, new_name);*/
 }
 
-
+/*-------------------------------------------------------------------------------*/
+// Assignment operator
 Restaurant& Restaurant::operator = (const Restaurant& restaurant)
 {
 	if (this != &restaurant)
@@ -38,17 +43,23 @@ Restaurant& Restaurant::operator = (const Restaurant& restaurant)
 	return *this;
 }
 
+/*-------------------------------------------------------------------------------*/
+// Destructor
 Restaurant::~Restaurant() {
 	//delete[] name;
 	street.~Address();
 	menu.~Menu();
 }
 
+/*-------------------------------------------------------------------------------*/
+// prints the restaurant name
 void Restaurant::printRestaurant()
 {
 	std::cout << name << std::endl;
 }
 
+/*-------------------------------------------------------------------------------*/
+// making the order (call from App - Order())
 int Restaurant::makeOrder(Dish* dish_array)
 {
 	int i = 0;

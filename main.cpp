@@ -90,7 +90,7 @@ int main()
     {
         std::cout << "\n-----------MENU:-----------\n"
             << "\t1-Exit\n"
-            << "\t2-Order Status\n"
+            << "\t2-Check Order\n"
             << "\t3-Order\n>";
         std::cin >> choose;
         switch (choose)
@@ -99,6 +99,7 @@ int main()
             return 0;
             break;
         case 2:
+            wolt.CheckOrder();
             break;
         case 3:
             wolt.order();

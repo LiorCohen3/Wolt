@@ -11,6 +11,7 @@ public:
 	~Application();
 public:
 	void order();
+	void CheckOrder();
 
 private:
 	Client*		clients;

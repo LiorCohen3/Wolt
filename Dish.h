@@ -22,11 +22,14 @@ public:
 	DishType getDishType() { return type; }
 	void setDishType(DishType new_type) { type = new_type; }
 	void setValue(int new_value) { value = new_value; }
+	bool getDishStatus(){return dish_status;}
+	void setDishStatus(bool val){dish_status = val;}
 	void printDish();
 	void printDishAdded();
 
 private:
 	const char*		name;
 	DishType		type;
+	bool			dish_status;
 	int				value;
 };

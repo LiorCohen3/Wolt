@@ -1,11 +1,15 @@
 #include "Client.h"
 
+/*-------------------------------------------------------------------------------*/
+// Default constructor
 Client::Client()
 	:
 	credits(100),
 	name(NULL),
 	phoneNumber(NULL) {}
 
+/*-------------------------------------------------------------------------------*/
+// Constructor
 Client::Client(const char* new_name, const char* new_phone_number, Address new_address)
 	:
 	credits(100)
@@ -30,6 +34,8 @@ Client::Client(const char* new_name, const char* new_phone_number, Address new_a
 	homeAddress = new_address;
 }
 
+/*-------------------------------------------------------------------------------*/
+// Assignment operator
 Client& Client::operator = (const Client& client)
 {
 	if (this != &client)
@@ -58,6 +64,8 @@ Client& Client::operator = (const Client& client)
 	return *this;
 }
 
+/*-------------------------------------------------------------------------------*/
+// Destructor
 Client::~Client() 
 {
 	//delete[] name;
