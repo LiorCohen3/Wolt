@@ -93,8 +93,10 @@ void Application::order()
 		int order_size = restaurants[restaurantIndex].makeOrder(chosen_dishes);
 		Order new_order(chosen_dishes, clients[0], restaurants[restaurantIndex], order_size);
 		orders[curr_orders_num] = new_order;
-		std::cout << "Please confirm the details of the order:\n";
+		std::cout << "\nPlease confirm the details of the order:\n\n";
+		std::cout << "Client's details: ";
 		clients[0].printClient();
+		std::cout << "Restaurant: ";
 		restaurants[restaurantIndex].printRestaurant();
 		int client_credit = clients[0].getCredits();
 		int order_sum = orders[curr_orders_num].getTotalSum();
@@ -116,7 +118,7 @@ void Application::CheckOrder()
 {
 	// print the order first
 	orders[curr_orders_num].PrintOrder();
-	std::cout << "Would you like to delete a dish?" << std::endl << "1 - yes" 
+	std::cout << "\nWould you like to delete a dish?" << std::endl << "1 - yes" 
 		<< std::endl << "0 - No, leave the order" << std::endl << std::endl;
 	int sel;
 	do
@@ -129,7 +131,7 @@ void Application::CheckOrder()
 		return;		// no changes
 	
 	// Changes
-	std::cout << "Which dish would you like to delete?" << std::endl
+	std::cout << "\nWhich dish would you like to delete?" << std::endl
 				<< "Select a dish by number\nEnter 0 to finish" << std::endl;;
 	do
 	{

@@ -65,11 +65,11 @@ int Restaurant::makeOrder(Dish* dish_array)
 	int num_of_dishes = 0;
 	int choose = -1 ;
 	std::cout << std::endl;
-	std::cout << "Choose dishes from menu, to end order enter 0:\n";
+	std::cout << "Choose dishes from menu, to end order enter 0:\n\n";
 	menu.printMenu();
 	do
 	{
-		std::cout << ">";
+		std::cout << "\n>";
 		std::cin >> choose;
 		if (choose > 0 && choose < 6)
 		{
