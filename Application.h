@@ -7,18 +7,15 @@ class Application
 {
 public:
 	Application();
-	Application(Client* new_clients, int num_of_clients, Restaurant* new_restaurants, int num_of_restaurants);
+	Application(Client *new_client, Restaurant* new_restaurants, int num_of_restaurants);
 	~Application();
 public:
-	void order();
+	void makeOrder();
 	void CheckOrder();
 
 private:
-	Client*		clients;
-	int			num_of_clients;
+	Client*		client;
 	Restaurant* restaurants;
 	int			num_of_restaurants;
-	Order*		orders;
-	int			curr_orders_num;
-	int			max_orders_num;
+	Order*		order;
 };

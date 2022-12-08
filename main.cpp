@@ -1,19 +1,11 @@
 #include "Application.h"
 #define MENU_SIZE 5
-#define CLIENT_SIZE 2
 #define RESTAURANT_SIZE 3
 
 int main() 
 {
     Address liors_address(15, "Ramla");
-    Address eliyas_address(25, "Modin");
-    Client clients_array[CLIENT_SIZE];
-    clients_array[0].setName("Lior");
-    clients_array[0].setPhoneNumber("0542288625");
-    clients_array[0].setAddress(liors_address);
-    clients_array[1].setName("Eliya");
-    clients_array[1].setPhoneNumber("0546465319");
-    clients_array[1].setAddress(eliyas_address);
+    Client wolt_client("Lior", "0542288625", liors_address);
 
     Dish taizu_dishes[MENU_SIZE];
     taizu_dishes[0].setName("Sushi Roll");
@@ -84,7 +76,7 @@ int main()
     restaurants_array[2].setAddress(a_address);
     restaurants_array[2].setMenu(a_menu);
 
-    Application wolt(clients_array, CLIENT_SIZE, restaurants_array, RESTAURANT_SIZE);
+    Application wolt(&wolt_client, restaurants_array, RESTAURANT_SIZE);
     int choose = 0;
     while (true)
     {
@@ -102,7 +94,7 @@ int main()
             wolt.CheckOrder();
             break;
         case 3:
-            wolt.order();
+            wolt.makeOrder();
             break;
         default:
             std::cout << "Please try again\n";

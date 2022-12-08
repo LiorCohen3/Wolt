@@ -15,6 +15,7 @@ public:
 	const char* callGetCity() { return homeAddress.getCity(); }
 	void setAddress(Address new_address) { homeAddress = new_address; }
 	int getCredits() { return credits; }
+	void chargeMoney(int sum) { credits -= sum; }
 	void printClient();
 
 private:

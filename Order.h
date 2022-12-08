@@ -16,7 +16,7 @@ public:
 	int getTotalSum() { return totalSum; }
 	void deleteDishByIndex(int index);
 	int	calcArrivalTime();
-
+	void deleteOrder();
 private:
 	Dish*		dishes;
 	int			dishes_size;

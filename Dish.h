@@ -15,7 +15,7 @@ public:
 	Dish();
 	Dish(const char* new_name, DishType new_type, int new_value);
 	Dish& operator =(const Dish& dish);
-	//~Dish() {}
+	~Dish() {}
 public:
 	int getValue() { return value;}
 	void setName(const char* new_name) { name = new_name; }
@@ -24,6 +24,7 @@ public:
 	void setValue(int new_value) { value = new_value; }
 	void printDish();
 	void printDishAdded();
+	void Reset();
 
 private:
 	const char*		name;

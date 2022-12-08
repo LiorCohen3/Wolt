@@ -5,7 +5,8 @@
 Order::Order()
 	:
 	dishes(NULL),
-	totalSum(0) {}
+	totalSum(0),
+	dishes_size(0){}
 
 /*-------------------------------------------------------------------------------*/
 //Constructor
@@ -34,8 +35,6 @@ Order::Order(Dish* dishes_order, Client client_order, Restaurant restaurant_orde
 Order::~Order()
 {
 	delete[] dishes;
-	//restaurant.~Restaurant();
-	//client.~Client();
 }
 
 
@@ -105,4 +104,20 @@ void Order::deleteDishByIndex(int index)
 		new_sum += dishes[i].getValue();
 	}
 	totalSum = new_sum;
+}
+
+
+/*-------------------------------------------------------------------------------*/
+// Delete Order
+
+void Order::deleteOrder()
+{
+	for (int i = 0; i < dishes_size; i++)
+	{
+		dishes[i].~Dish();
+	}
+	dishes_size = 0;
+	totalSum = 0;
+	client.~Client();
+	restaurant.~Restaurant();
 }
